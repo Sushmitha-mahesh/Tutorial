@@ -1,0 +1,34 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+                          
+        <var name="shipping" class="com.niit.pendent.model.Shipping"></var>
+        <var name="orders" class="com.niit.pendent.model.Orders"></var>
+        
+        <on-start>
+        <evaluate expression="orderWebflow.initFlow()"
+        result="flowScope.orders"></evaluate>
+        </on-start>    
+        
+        <view-state id="flowExecutor" view="shippingaddress" model="shipping">
+        <transition on="submitShippingAddress" to="toshippingaddress">
+        </transition>
+        </view-state>     
+                          
+         <action-state id="shippingaddress">
+         <evaluate expression="orderWebflow.addShippingAddress(flowScope.orders, shippingaddress)"></evaluate>
+         <transition on="success" to="toshippingaddress"></transition> 
+         <transition on="fail" to="Checkout"></transition>
+         </action-state>       
+                          
+         <end-state id="toshippingaddress" view="externalRedirect:contextRelative:/" />
+         
+         <global-transitions>
+         <transition on="cancel" to="Checkout">
+         </transition></global-transitions>
+          
+                    
+                          </flow>
+  -->
